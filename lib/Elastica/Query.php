@@ -426,4 +426,33 @@ class Query extends Param
     {
         return $this->setParam('post_filter', $filter);
     }
+
+    /**
+     * Sets search_after arguments for the query.
+     * Replaces existing values.
+     *
+     * @param array $searchAfterArgs Search after arguments
+     *
+     * @return $this
+     *
+     * @see https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-search-after.html
+     */
+    public function setSearchAfter(array $searchAfterArgs)
+    {
+        return $this->setParam('search_after', $searchAfterArgs);
+    }
+
+    /**
+     * Adds a searchAfter param to the query.
+     *
+     * @param mixed $searchAfter SearchAfter parameter
+     *
+     * @return $this
+     *
+     * @see https://www.elastic.co/guide/en/elasticsearch/reference/current/search-request-search-after.html
+     */
+    public function addSearchAfter($searchAfter)
+    {
+        return $this->addParam('search_after', $searchAfter);
+    }
 }
